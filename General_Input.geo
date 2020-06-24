@@ -5,11 +5,7 @@
  *********************************************************************/
 // COMMON INPUT TO BE PASSED ON TO ALL .geo FILES INVOKING MACROS!
 //-------------------------------------------------------------------------------------------
-// REFERENCE UNIT OF MEASURE:
-// ref == 1		    FOR METRES
-// ref == 1000		FOR MILLIMETRES
-
-ref = 1000;
+// REFERENCE UNIT OF MEASURE: MILLIMETRES
 //-------------------------------------------------------------------------------------------
 // BOND TYPE FOR THE BRICKS IN THE ARCH, TAKING THE EQUIVALENCES BELOW IN CONSIDERATION:
 // JOINT PLANE AT LOCAL X=ct == CIRCUMPHERENTIAL JOINT
@@ -25,11 +21,6 @@ Abt = 1;
 //-------------------------------------------------------------------------------------------
 // DEFINE GEOMETRIC INPUT (DEPENDENT ON UNITS)
 //-------------------------------------------------------------------------------------------
-If (ref == 1)
-	Printf("Complete all input parameters in metres!");
-	Abort();
-//-------------------------------------------------------------------------------------------
-ElseIf (ref == 1000)
 // NOMINAL BRICK DIMENSIONS FOR ARCHES
 br_x[] = {102.5, 10.0};	// {e = brick, o = interface}
 br_y[] = {105.0, 6.0};	// {e = brick, o = interface}
@@ -51,8 +42,6 @@ Angle = Pi-2*phi0;
 
 // LOADING
 BZL = 6;	// Number of the brick Z-layer where prop/dyn load will be applied
-
-EndIf
 //-------------------------------------------------------------------------------------------
 // DEFINE DISCRETISATION INPUT (REGARDLESS OF UNITS)
 //-------------------------------------------------------------------------------------------

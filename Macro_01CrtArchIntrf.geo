@@ -122,14 +122,14 @@ S_sprngE[] = out[];
 Coherence;
 //----------------------------------------------------------------------------------
 // INITIALISE LISTS FOR GROUPING IN PHYSICAL ENTITIES:
-eee[]={};
-eeo[]={};
-eoe[]={};
-oee[]={};
-eoo[]={};
-ooe[]={};
-oeo[]={};
-ooo[]={};
+eee[] = {};
+eeo[] = {};
+eoe[] = {};
+oee[] = {};
+eoo[] = {};
+ooe[] = {};
+oeo[] = {};
+ooo[] = {};
 //----------------------------------------------------------------------------------
 // LOOP OVER ALL VOLUMES VIA z_index (LAYER COUNTER STARTING FROM ZERO, WHERE A LAYER
 // IS MADE OF (n_x * n_y) ELEMENTS).

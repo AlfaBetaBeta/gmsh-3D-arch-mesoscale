@@ -78,11 +78,7 @@ EndIf
 Physical Volume ("br2in")   += {bedjt[], jHJY[], jBBY[], hdjtX[], ASki[], ABfi[]};
 
 // ASSIGN PHYSICAL VOLUMES TO BRICKS FOR SELF-WEIGHT
-If (ref == 1)
-	Physical Volume ("init_udl1_0_0_-20000") += {brick[]};
-ElseIf (ref == 1000)
-	Physical Volume ("init_udl1_0_0_-0.00002") += {brick[]};
-EndIf
+Physical Volume ("init_udl1_0_0_-0.00002") += {brick[]};
 //-------------------------------------------------------------------------------------------
 
 Return
