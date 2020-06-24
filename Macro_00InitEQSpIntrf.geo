@@ -10,14 +10,7 @@
 // (CrtArchIntrf, ..) BASED ON THE MOST COMMONLY
 // GIVEN GEOMETRIC INFO, I.E. CLEAR SPAN, ARCH RISE AND ARCH THICKNESS
 
-// NOTES: * IT IS ASSUMED THAT ALL SPANS ARE IDENTICAL, THAT IS, THE
-//	    CLEAR SPAN, ARCH RISE AND THICKNESS ARE CONSTANT, WHICH
-//	    ALSO ENTAILS THAT THE SKEWBACKS ARE SYMMETRIC (L_x1 = -L_x3)
-//	  * BY DEFAULT L_x2 IS SET TO ZERO IF THE PIERS ARE TOO THIN, AND
-//	    PWd0 IS USED INSTEAD, CONSIDERING 3 EDGED SKEWBACKS/BACKINGS
-//	  * OTHERWISE L_x2 IS SET TO THE APPROPRIATE FINITE VALUE, AND
-//	    ALL 4 EDGES ARE CONSIDERED IN THE SKEWBACKS/BACKINGS
-//	  * IT IS ASSUMED THAT IN THE START AND END ARCH SPRINGINGS, AS WELL
+// NOTES: * IT IS ASSUMED THAT IN THE START AND END ARCH SPRINGINGS, AS WELL
 //	    AS IN THE ARCH EXTRADOS, THERE IS ALWAYS AN INTERFACE LAYER!
 //	    SHOULD THIS NOT BE THE CASE, THEN APPROPRIATE CHANGES MUST BE
 //	    MADE IN THE BLOCK BELOW (CALCULATION OF pA1, pA2, pA3)
@@ -50,12 +43,10 @@ OUT: 	Radius = Arch radius (centre to mid-surface)
 	Th0   = Aux variable, arch thickness necessary to have PWd0
 		matching PWd
 
-	pA1   = Starting Point to generate arch1 
-	pA2   = Starting Point to generate arch2
-	pA3   = Starting Point to generate arch3
+	pA2   = Starting Point to generate the arch
 */
 //-------------------------------------------------------------------------------------------
-// CALCULATE RADIUS, CONSTANT AND EQUAL FOR ALL SPANS
+// CALCULATE RADIUS
 
 R = (CSp^2/4 + ARs^2)/(2*ARs);
 Radius = R + Th/2;
@@ -69,7 +60,7 @@ Sphi0 = Sin(phi0);
 // DETERMINE SKEWBACK GEOMETRY PARAMETERS (INPUT FOR SUBSEQUENT MACROS)
 
 Lx0  = Th * Cphi0; Printf("X-width of triangular side of skewback = ", Lx0);
-PWd0 = 2*Lx0; // << VALOR DE CALCULO
+PWd0 = 2*Lx0; // << DESIGN VALUE
 L_x1 = -Lx0;
 L_x3 = Lx0;
 Lz0  = Sqrt(Th^2 - Lx0^2); Printf("Height of the skewback = ", Lz0);
@@ -87,27 +78,11 @@ Else
 	Printf("         To comply with the original value of PWd, reduce arch thickness Th to %.2f and restart.", Th0);
 EndIf
 //-------------------------------------------------------------------------------------------
-// DETERMINE STARTING POINTS FOR THE 3 ARCHES (SUBROUTINE CrtArchIntrf)
-// SEE 4th NOTE ABOVE AFFECTING THE CALCULATION OF THESE POINTS
-
-// ONLY ONE ARCH (MIDDLE ONE, A2) IS GENERATED HERE
-
-//pA1 = newp; Point(pA1) = {-3*CSp/2-3*Lx0-L_x2-br_x[0]/2, 0, PH+Lz0-br_z[0]/2};
-//Rotate {{0,1,0}, {-3*CSp/2-3*Lx0-L_x2, 0, PH+Lz0}, phi0} { Point{pA1}; }
+// DETERMINE STARTING POINT FOR THE ARCH (SUBROUTINE CrtArchIntrf)
+// ONLY ONE ARCH IS GENERATED HERE
 
 pA2 = newp; Point(pA2) = {-CSp/2-Lx0-br_x[0]/2,          0, PH+Lz0-br_z[0]/2};
 Rotate {{0,1,0}, {-CSp/2-Lx0, 0, PH+Lz0}, phi0} { Point{pA2}; }
-
-//pA3 = newp; Point(pA3) = { CSp/2+Lx0+L_x2-br_x[0]/2,     0, PH+Lz0-br_z[0]/2};
-//Rotate {{0,1,0}, {CSp/2+Lx0+L_x2, 0, PH+Lz0}, phi0} { Point{pA3}; }
-//-------------------------------------------------------------------------------------------
-// DETERMINE STARTING POINTS FOR THE 1st SKEWBACK (SUBROUTINE TrpzmStr)
-
-// NOT NEEDED HERE
-//-------------------------------------------------------------------------------------------
-// DETERMINE STARTING POINTS FOR THE 2 PIERS (SUBROUTINE CrtPierIntrf)
-
-// NOT NEEDED HERE
 //-------------------------------------------------------------------------------------------
 
 Return
