@@ -41,11 +41,7 @@ Physical Volume ("g_ASki")   = {};	// PHYSICAL INTERFACE ARCH SPR. - SKEWBACK
 Physical Volume ("g_ABfi")   = {};	// PHYSICAL INTERFACE ARCH EXTRAD. - BACKFILL
 
 Physical Volume ("br2in") = {};		// JOINT LAYERS TO BECOME INTERFACE ELMTS
-If (ref == 1)
-	Physical Volume ("init_udl1_0_0_-20000") = {};		// BRICKS SELF-WEIGHT
-ElseIf (ref == 1000)
-	Physical Volume ("init_udl1_0_0_-0.00002") = {};	// BRICKS SELF-WEIGHT
-EndIf
+Physical Volume ("init_udl1_0_0_-0.00002") = {};	// BRICKS SELF-WEIGHT
 //----------------------------------------------------------------------------------
 // INITIALISE LIST FOR PHYSICAL SURFACE ASSIGNMENT LATER, VIA MACRO PhysicalSTRIP
 Physical Surface ("r_y") = {};		// RESTRAINTS FOR PLANE STRAIN STRIP
