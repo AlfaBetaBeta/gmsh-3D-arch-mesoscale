@@ -8,7 +8,7 @@ The load is expected to be dynamic and applied to the extrados face of a given '
 
 In this version, units are expected to be mm! 
 
-The self-weight of materials must be edited manually in the `main .geo` file (line 47) and at the end of the appropriate `Bond_Type` macro `Macro_01Bond_Type0x`
+The self-weight of materials must be edited manually in the main file `test.geo` (line 47) and at the end of the appropriate `Bond_Type` macro `Macro_01Bond_Type0x`
 
 Illustratively, the 3 implemented bond types can be visualised in the .pdf file. 
 
