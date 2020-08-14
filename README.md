@@ -10,17 +10,17 @@ In this version, units are expected to be mm!
 
 The self-weight of materials must be edited manually in the main file `test.geo` 
 
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/physical-volume-bricks-sw.png" width=100% height=100%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/physical-volume-bricks-sw.png" width=90% height=90%>
 
 and at the end of the appropriate `Bond_Type` macro `Macro_01Bond_Type0x`
 
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/brick-sw-bond-type-1.png" width=100% height=100%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/brick-sw-bond-type-1.png" width=90% height=90%>
 
 provided that the string with the Physical Volume name be programmatically processed by a FE engine to define volumetric loads. Should the self weight components be defined differently, then this manual labelling is unnecessary.
 
 Similarly, initial conditions and dynamic loading must be edited manually in the main file `test.geo` **if** the strings are meant to convey information about displacement/velocity/acceleration:
 
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/Initial-conditions-loading.png" width=100% height=100%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/Initial-conditions-loading.png" width=60% height=60%>
 
 
 Geometric and meshing parameters to be entered in the general input file:
