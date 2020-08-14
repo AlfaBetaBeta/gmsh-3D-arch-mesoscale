@@ -49,7 +49,7 @@ Three distinct bond types for the bricks in the arch are implemented here, takin
 * Joint plane at local Y = constant == ARCH JOINT (LONGITUDINAL)
 * Joint plane at local Z = constant == RADIAL JOINT
 
-Illustratively, these bond types can be inspected below, whereby on the left the brick and mortar hexahedra are distinctly displayed (the 'mortar joints' inside the brick bulk are made translucent to facilitate inspection of the bond type); on the right only the real mortar joints are displayed:
+Illustratively, these bond types can be inspected below, whereby on the left the brick and mortar hexahedra are distinctly displayed (the 'mortar joints' inside the brick bulk are made translucent to facilitate inspection); on the right only the real mortar joints are displayed:
 * Bond type 1: running bond in XY and YZ (leaves entire circumferential and radial joints)
 <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/BT1.png" width=100% height=100%>
 
