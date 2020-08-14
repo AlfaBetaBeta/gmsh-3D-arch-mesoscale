@@ -20,7 +20,7 @@ provided that the string with the Physical Volume name be programmatically proce
 
 Similarly, initial conditions and dynamic loading must be edited manually in the main file `test.geo` **if** the strings are meant to convey information about displacement/velocity/acceleration:
 
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/Initial-conditions-loading.png" width=60% height=60%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/Initial-conditions-loading.png" width=50% height=50%>
 
 
 Geometric and meshing parameters to be entered in the general input file:
