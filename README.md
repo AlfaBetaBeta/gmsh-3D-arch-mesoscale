@@ -10,11 +10,11 @@ In this version, units are expected to be mm!
 
 The self-weight of materials must be edited manually in the main file `test.geo` 
 
-[...]
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/physical-volume-bricks-sw.png" width=100% height=100%>
 
 and at the end of the appropriate `Bond_Type` macro `Macro_01Bond_Type0x`
 
-[...]
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/brick-sw-bond-type-1.png" width=100% height=100%>
 
 Illustratively, the 3 implemented bond types can be visualised in the .pdf file. 
 
