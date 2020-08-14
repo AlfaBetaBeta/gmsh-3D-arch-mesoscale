@@ -70,6 +70,7 @@ EndFor
 // ENSURE LAST LAYER IS THE SAME AS 1ST LAYER BY ADDING +1
 // (i.e. EITHER BOTH SPRINGINGS ARE BRICK OR BOTH ARE MORTAR)
 n_z = Floor(length/ll)*(#br_z[]) + 1;
+Printf("INFO: The number of circumferential layers is n_z = ", n_z);
 //----------------------------------------------------------------------------------
 // (1) POINT EXTRUSIONS ALONG X STARTING FROM GIVEN POINT StrtPt:
 xyzStrtPt[] = Point{StrtPt};

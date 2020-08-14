@@ -17,14 +17,15 @@
 // Abt == 3	LEAVES ENTIRE CIRCUMPHERENTIAL JOINTS REPRESENTING INTERFACES BETWEEN RINGS,
 //	        AS WELL AS RADIAL JOINTS
 
-Abt = 1;
+Abt = 3;
 //-------------------------------------------------------------------------------------------
 // DEFINE GEOMETRIC INPUT (DEPENDENT ON UNITS)
 //-------------------------------------------------------------------------------------------
 // NOMINAL BRICK DIMENSIONS FOR ARCHES
-br_x[] = {65, 10};		// {e = brick, o = interface}
+//br_x[] = {65, 10};		// {e = brick, o = interface}
+br_x[] = {8.33, 65};		// {e = interface, o = brick}
 br_y[] = {107.5, 6.0};	// {e = brick, o = interface}
-br_z[] = {7.0, 102.5};	// {e = interface, o = brick}
+br_z[] = {7.382, 102.5};	// {e = interface, o = brick}
 
 // PIER DIMENSIONS (ONLY NEEDED TO LOCATE THE ARCH IN GEOMETRIC SPACE)
 PH    = 5000;	// Height
@@ -46,7 +47,7 @@ BZL = 6;	// Number of the brick Z-layer where prop/dyn load will be applied
 // DEFINE DISCRETISATION INPUT (REGARDLESS OF UNITS)
 //-------------------------------------------------------------------------------------------
 // ARCH
-n_x  = 11;	// Number of layers (brick & interface) along local X
+n_x  = 12;	// Number of layers (brick & interface) along local X
 n_y  = 11;	// Number of layers (brick & interface) along local Y
 //-------------------------------------------------------------------------------------------
 
