@@ -11,7 +11,7 @@ The self-weight of materials must be edited manually in the main file `test.geo`
 
 <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/physical-volume-bricks-sw.png" width=90% height=90%>
 
-and at the end of the appropriate `Bond_Type` macro `Macro_01Bond_Type0x`
+and at the end of the appropriate `Bond_Type` macro `Macro_01Bond_Type0x.geo`
 
 <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/brick-sw-bond-type-1.png" width=90% height=90%>
 
@@ -25,9 +25,9 @@ Similarly, initial conditions and dynamic loading must be edited manually in the
 ## Geometry and FE mesh
 
 The frame of reference is based on the following coordinates:
-* Locally, X = direction along arch thickness (from extrados to intrados)
-		   Y = direction along arch width (axis of revolution)
-		   Z = (curved) direction along arch (left to right when seen from y=0 plane)
+* Local X = direction along arch thickness (from extrados to intrados)
+* Local Y = direction along arch width (axis of revolution)
+* Local Z = (curved) direction along arch (left to right when seen from y=0 plane)
 
 Illustratively, the local and global coordinates are shown below (though the latter are not used in this framework):
 <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/Axes-local-global.png" width=100% height=100%>
