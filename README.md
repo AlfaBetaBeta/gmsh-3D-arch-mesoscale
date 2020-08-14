@@ -9,17 +9,17 @@ The load is expected to be dynamic and applied to the extrados face of a given '
 
 The self-weight of materials must be edited manually in the main file `test.geo` 
 
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/physical-volume-bricks-sw.png" width=90% height=90%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/physical-volume-bricks-sw.png" width=90% height=90%>
 
 and at the end of the appropriate `Bond_Type` macro `Macro_01Bond_Type0x.geo`
 
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/brick-sw-bond-type-1.png" width=90% height=90%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/brick-sw-bond-type-1.png" width=90% height=90%>
 
 provided that the string with the Physical Volume name be programmatically processed by a FE engine to define volumetric loads. Should the self weight components be defined differently, then this manual labelling is unnecessary.
 
 Similarly, initial conditions and dynamic loading must be edited manually in the main file `test.geo` **if** the strings are meant to convey information about displacement/velocity/acceleration:
 
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/Initial-conditions-loading.png" width=50% height=50%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/Initial-conditions-loading.png" width=50% height=50%>
 
 
 ## Geometry and FE mesh
@@ -30,7 +30,7 @@ The frame of reference is based on the following coordinates:
 * Local Z = (curved) direction along arch (left to right when seen from y=0 plane)
 
 Illustratively, the local and global coordinates are shown below (though the latter are not used in this framework):
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/Axes-local-global.png" width=100% height=100%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/Axes-local-global.png" width=100% height=100%>
 
 * **Both** the bricks and the mortar joints are defined as solid hexahedrons. Transforming the latter into zero-thickness interface elements can be done externally and is not addressed further here. When defining the dimensions of the brick and mortar along X/Y/Z in `General_input`, it is up to the user to set the order {brick,mortar} or {mortar,brick} for each direction (`br_x[]`, `br_y[]` and `br_z[]`) separately!
 
@@ -51,13 +51,13 @@ Three distinct bond types for the bricks in the arch are implemented here, takin
 
 Illustratively, these bond types can be inspected below, whereby on the left the brick and mortar hexahedra are distinctly displayed (the 'mortar joints' inside the brick bulk are made translucent to facilitate inspection); on the right only the real mortar joints are displayed:
 * Bond type 1: running bond in XY and YZ (leaves entire circumferential and radial joints)
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/BT1.png" width=100% height=100%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/BT1.png" width=100% height=100%>
 
 * Bond type 2: running bond in XY and XZ (leaves entire arch and radial joints)
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/BT2.png" width=100% height=100%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/BT2.png" width=100% height=100%>
 
 * Bond type 3: leaves entire circumferential joints representing interfaces between rings, as well as radial joints
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/BT3.png" width=100% height=100%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/BT3.png" width=100% height=100%>
 
 ## Execution
 
