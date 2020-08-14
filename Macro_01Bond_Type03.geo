@@ -79,7 +79,7 @@ If (#ABfi[] == 0)
 			slc_stt1 = start_hj + hjX_X*Xrow + hjX_Z*lyZ;
 			slc_end1 = hjX_X*Xrow + hjX_Z*lyZ + (hjX_X-1);
 
-			aux_slc[] = hdjtX[{ slc_stt1 : slc_end1 };
+			aux_slc[] = hdjtX[{ slc_stt1 : slc_end1 }];
 
 			jHJX[] = {jHJX[], hdjtX[{ aux_slc[ {slc_ind1[]} ] }]};
 			jBBX[] = {jBBX[], hdjtX[{ aux_slc[ {slc_ind2[]} ] }]};
@@ -98,7 +98,7 @@ If (#ABfi[] == 0)
 			slc_stt1 = start_hj + hjX_X*Xrow + hjX_Z*lyZ;
 			slc_end1 = hjX_X*Xrow + hjX_Z*lyZ + (hjX_X-1);
 
-			aux_slc[] = hdjtX[{ slc_stt1 : slc_end1 };
+			aux_slc[] = hdjtX[{ slc_stt1 : slc_end1 }];
 
 			jHJX[] = {jHJX[], hdjtX[{ aux_slc[ {slc_ind3[]} ] }]};
 			jBBX[] = {jBBX[], hdjtX[{ aux_slc[ {slc_ind4[]} ] }]};
