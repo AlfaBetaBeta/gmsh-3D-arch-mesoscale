@@ -16,9 +16,12 @@ and at the end of the appropriate `Bond_Type` macro `Macro_01Bond_Type0x`
 
 <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/brick-sw-bond-type-1.png" width=100% height=100%>
 
-Illustratively, the 3 implemented bond types can be visualised in the .pdf file. 
+provided that the string with the Physical Volume name be programmatically processed by a FE engine to define volumetric loads. Should the self weight components be defined differently, then this manual labelling is unnecessary.
 
-Initial conditions and dynamic loading must be edited manually in the main .geo file (lines 76-77,80)
+Similarly, initial conditions and dynamic loading must be edited manually in the main file `test.geo` **if** the strings are meant to convey information about displacement/velocity/acceleration:
+
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/Initial-conditions-loading.png" width=100% height=100%>
+
 
 Geometric and meshing parameters to be entered in the general input file:
 * Locally, x = direction along arch thickness (from extrados to intrados)
@@ -35,3 +38,5 @@ Geometric and meshing parameters to be entered in the general input file:
 
 
 To read the main script into gmsh via GUI, simply open it from gmsh and then press 0. To execute the meshing after reading the script, press 3. The resulting `.msh` file will be necessary as input for further generative/analysis tools.
+
+Illustratively, the 3 implemented bond types can be visualised in the .pdf file. 
