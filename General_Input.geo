@@ -8,13 +8,13 @@
 // REFERENCE UNIT OF MEASURE: MILLIMETRES
 //-------------------------------------------------------------------------------------------
 // BOND TYPE FOR THE BRICKS IN THE ARCH, TAKING THE EQUIVALENCES BELOW IN CONSIDERATION:
-// JOINT PLANE AT LOCAL X=ct == CIRCUMPHERENTIAL JOINT
+// JOINT PLANE AT LOCAL X=ct == CIRCUMFERENTIAL JOINT
 // JOINT PLANE AT LOCAL Y=ct == ARCH JOINT (LONGITUDINAL)
 // JOINT PLANE AT LOCAL Z=ct == RADIAL JOINT
 
-// Abt == 1	RUNNING BOND IN XY AND YZ (LEAVES ENTIRE CIRCUMPHERENTIAL AND RADIAL JOINTS)
+// Abt == 1	RUNNING BOND IN XY AND YZ (LEAVES ENTIRE CIRCUMFERENTIAL AND RADIAL JOINTS)
 // Abt == 2	RUNNING BOND IN XY AND XZ (LEAVES ENTIRE ARCH AND RADIAL JOINTS)
-// Abt == 3	LEAVES ENTIRE CIRCUMPHERENTIAL JOINTS REPRESENTING INTERFACES BETWEEN RINGS,
+// Abt == 3	LEAVES ENTIRE CIRCUMFERENTIAL JOINTS REPRESENTING INTERFACES BETWEEN RINGS,
 //	        AS WELL AS RADIAL JOINTS
 
 Abt = 3;
@@ -22,13 +22,12 @@ Abt = 3;
 // DEFINE GEOMETRIC INPUT (DEPENDENT ON UNITS)
 //-------------------------------------------------------------------------------------------
 // NOMINAL BRICK DIMENSIONS FOR ARCHES
-//br_x[] = {65, 10};		// {e = brick, o = interface}
-br_x[] = {8.33, 65};		// {e = interface, o = brick}
+br_x[] = {8.33, 65};	// {e = interface, o = brick}
 br_y[] = {107.5, 6.0};	// {e = brick, o = interface}
-br_z[] = {7.382, 102.5};	// {e = interface, o = brick}
+br_z[] = {7.382, 102.5};// {e = interface, o = brick}
 
 // PIER DIMENSIONS (ONLY NEEDED TO LOCATE THE ARCH IN GEOMETRIC SPACE)
-PH    = 5000;	// Height
+PH    = 5000;	// Height (arbitrary)
 PWd   = 0;	    // Reference X-width [Use 0 if minimum X-width is sought (triangular skewback)]
 W     = 675;	// Y-width
 
