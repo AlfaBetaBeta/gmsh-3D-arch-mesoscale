@@ -1,6 +1,6 @@
 # Generation of a mesoscale 3D arch with gmsh
 
-All macros are developed under gmsh version 2.2. They should work with later versions (4) as well.
+All macros are developed under gmsh version 2.2., though they should work with later versions (4) as well.
 
 These macros generate ONE single arch as a standalone element, i.e. no backfill/backing/ballast...
 
@@ -8,7 +8,13 @@ The load is expected to be dynamic and applied to the extrados face of a given '
 
 In this version, units are expected to be mm! 
 
-The self-weight of materials must be edited manually in the main file `test.geo` (line 47) and at the end of the appropriate `Bond_Type` macro `Macro_01Bond_Type0x`
+The self-weight of materials must be edited manually in the main file `test.geo` 
+
+[...]
+
+and at the end of the appropriate `Bond_Type` macro `Macro_01Bond_Type0x`
+
+[...]
 
 Illustratively, the 3 implemented bond types can be visualised in the .pdf file. 
 
