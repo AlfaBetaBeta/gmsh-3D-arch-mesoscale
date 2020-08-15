@@ -63,8 +63,14 @@ Illustratively, these bond types can be inspected below, whereby on the left the
 
 ## Execution
 
-Once `General_input.geo` has been populated with the appropriate values, to read the main script (here `test.geo`) into gmsh via GUI:
-* Open it from gmsh and then press `0` to read the file.
-* To execute the 3D meshing after reading the script, press `3`.
-* The resulting `.msh` file can be saved locally and might be necessary as input for further generative/analysis tools.
+Once `General_input.geo` has been populated with the appropriate values, to read the main script `test.geo` into gmsh and proceed with the meshing, execution can be done via:
+* GUI:
+    * Open it from gmsh and then press `0` to read the file.
+    * To execute the 3D meshing after reading the script, press `3`.
+    * The resulting `.msh` file can be saved locally and might be necessary as input for further generative/analysis tools.
+
+* CLI:
+```
+$ gmsh -3 test.geo
+```
 
