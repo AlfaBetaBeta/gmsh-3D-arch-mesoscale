@@ -34,7 +34,9 @@ Illustratively, the local and global coordinates are shown below (though the lat
 
 * **Both** the bricks and the mortar joints are defined as solid hexahedrons. Transforming the latter into zero-thickness interface elements can be done externally and is not addressed further here. When defining the dimensions of the brick and mortar along X/Y/Z in `General_input`, it is up to the user to set the order {brick,mortar} or {mortar,brick} for each direction (`br_x[]`, `br_y[]` and `br_z[]`) separately!
 
-* Note that a *brick* refers here to **half** of an actual brick (i.e. cross sectional dimensions 65 x 102.5 and length 215/2). This is because there are very stiff 'mortar layers' meant to be inside the brick bulk. Their distribution alongside the real mortar layers depends on the type of bond.
+* Note that a *brick* refers here to **half** of an actual brick (i.e. cross sectional dimensions 65 x 102.5 and length 215/2). This is because there are very stiff 'mortar layers' meant to be inside the brick bulk, as shown below. Their distribution alongside the real mortar layers depends on the type of bond.
+
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/brick-mortar-detail.png" width=100% height=100%>
 
 Geometric and meshing parameters to be entered in the `General_input` file:
 * `n_x` and `n_y` represent the number of layers along local X and Y, respectively. Bear in mind that this includes brick **and** mortar (i.e. `n_x=3` represents {brick,mortar,brick} or {mortar,brick,mortar} depending on `br_x[]`). `n_z` is calculated inside the macros and displayed as an INFO message upon execution.
