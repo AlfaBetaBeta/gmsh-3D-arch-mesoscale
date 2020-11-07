@@ -48,8 +48,15 @@ Illustratively, all three bond types can be inspected below, whereby on the left
 
 ## Input parameters
 
-All the `.geo` files containing macros are named as the macro they embed, prepended by `Macro_`. Additionally, there is a file (`General_Input.geo`) gathering all relevant modelling information. This file is the one meant to be edited by the user, alongside the main file actually calling the macros and retrieving the input values, in this case `test.geo`. There are two main groups of input parameters in `General_Input.geo`: geometry and meshing parameters.
+All the `.geo` files containing macros are named as the macro they embed, prepended by `Macro_`. Additionally, there is a file (`General_Input.geo`) gathering all relevant modelling information. This file is the one meant to be edited by the user, alongside the main file actually calling the macros and retrieving the input values, in this case `test.geo`.
 
+There are two main groups of input parameters in `General_Input.geo`: geometry and meshing parameters.
+
+### Geometry
+
+An example of geometric input from within `General_Input.geo` is shown below:
+
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/geometry-input.png" width=90% height=90%>
 
 
 ## Units and loads
