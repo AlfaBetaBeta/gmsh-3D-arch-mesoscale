@@ -10,7 +10,7 @@ This repository contains a set of macros to generate a 3D Finite Element mesosca
 
 The spatial mesh comprises solely 20-noded serendipitous hexahedrons, forming a **single arch** as a standalone structural component (i.e. without further typical masonry elements like backfill or backing).
 
-Illustratively, an example of arch mesh is shown below, alongside the local and global coordinate systems used throughout (though the latter are mere reference in this context, they are kept for consistency with [other repositories](https://github.com/AlfaBetaBeta/gmsh-3D-arch-bridge)). Note that the volumes are made transparent for clarity.
+Illustratively, an example of arch mesh is shown below, alongside the local and global coordinate systems used throughout (though the latter is mere reference in this context, it is kept for consistency with [other repositories](https://github.com/AlfaBetaBeta/gmsh-3D-arch-bridge)). Note that the volumes are made transparent for clarity.
 
 <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/Axes-local-global.png" width=100% height=100%>
 
@@ -31,7 +31,8 @@ Three distinct bond types are implemented in the macros, taking the definitions 
 
 All joint planes are highlighted below on sample arches for ease of interpretation. Each bond type aims at avoiding certain joint planes, to increase stability and favour brick interlocking.
 
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/joint-types.png" width=100% height=100%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/joint-types.png" width=100% height=100%>
+
 
 Illustratively, all three bond types can be inspected below, whereby on the left the brick and mortar hexahedra are distinctly displayed and the 'brick bulk joints' are made translucent for clarity; on the right only the real mortar joints are displayed:
 
