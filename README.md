@@ -28,13 +28,13 @@ Note that, although notionally a *brick* still refers intuitively to a standard 
 
 ## Bond types
 
-Three distinct bond types are implemented in the macros, taking the definitions below in consideration:
+Three distinct bond types are implemented in the macros, taking the definitions below into consideration:
 
 * Joint plane at constant (local) X => ***circumferential*** joint
 * Joint plane at constant (local) Y => ***arch (longitudinal)*** joint
 * Joint plane at constant (local) Z => ***radial*** joint
 
-All joint planes are highlighted below on sample arches for ease of interpretation. Each bond type aims at avoiding certain joint planes, to increase stability and favour brick interlocking.
+Examples of each joint plane type are highlighted below on sample arches for ease of interpretation. Each bond type aims at avoiding continuity of certain joint planes, to increase stability and favour brick interlocking.
 
 <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/joint-types.png" width=100% height=100%>
 
