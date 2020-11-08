@@ -36,7 +36,7 @@ Three distinct bond types are implemented in the macros, taking the definitions 
 
 All joint planes are highlighted below on sample arches for ease of interpretation. Each bond type aims at avoiding certain joint planes, to increase stability and favour brick interlocking.
 
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/joint-types.png" width=100% height=100%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/joint-types.png" width=100% height=100%>
 
 
 Illustratively, all three bond types can be inspected below, whereby on the left the brick and mortar hexahedra are distinctly displayed and the 'brick bulk joints' are made translucent for clarity; on the right only the real mortar joints are displayed:
@@ -61,7 +61,7 @@ There are two main groups of input parameters in `General_Input.geo`: geometry a
 
 An example of geometric input from within `General_Input.geo` is shown below:
 
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/geometry-input.png" width=80% height=80%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/geometry-input.png" width=80% height=80%>
 
 * `Abt` specifies the bond type as elaborated [above]().
 * `br_*[]` are lists containing the brick and mortar element dimensions along each (local) coordinate direction. It is up to the user to set the list order as {brick,mortar} or {mortar,brick} for each direction (`br_x[]`, `br_y[]` and `br_z[]`) separately. For instance, along (local) Y, the dimensions in the example are `107.5` for the brick elements and `6.0` for the joint elements (mortar and 'brick bulk'). As noted in the [introduction](), recall that two brick elements (and a 'brick bulk joint') are necessary to fully represent a physical brick.
@@ -69,7 +69,7 @@ An example of geometric input from within `General_Input.geo` is shown below:
 * `CSp`, `ARs` and `Th` define the geometry of the arch. Their meaning can be visually interpreted [here]().
 * `BZL` represents the number of brick layer (i.e. ignoring mortar) where loading will be applied on its extrados face. It starts from 1 in the brick layer at the springing where (local) Z is zero. Illustratively, a sample arch with 60 brick layers is shown below where `BZL = 50` (volumes made translucent for clarity).
 
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/BZL-example.png" width=100% height=100%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/BZL-example.png" width=100% height=100%>
 
 In its current form, the set of macros only accepts one brick layer for `BZL`, but future revisions will accommodate the case of multiple layers via a list-like parameter (`BZL[]`).
 
@@ -77,7 +77,7 @@ In its current form, the set of macros only accepts one brick layer for `BZL`, b
 
 A sample meshing input from within `General_Input.geo` is also shown below:
 
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/meshing-input.png" width=60% height=60%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/meshing-input.png" width=60% height=60%>
 
 * `n_x` and `n_y` represent the number of layers along local X and Y, respectively. Bear in mind that this includes brick **and** mortar (thus for instance `n_x = 3` represents {brick, joint, brick} or {joint, brick, joint} depending on `br_x[]`). `n_z` is calculated inside the macros and displayed as an `INFO` message upon execution.
 
@@ -87,11 +87,11 @@ The main `test.geo` file initialises the physical entities to be populated in th
 
 If the physical entity labels in `test.geo` do convey information to be processed (like self-weight, as in the example below left), then attention must be paid to ensure **consistency of units with geometric dimensions** (e.g. as specified in `br_*[]`), as well as **consistency between `test.geo` and the relevant bond type macro** (e.g. `01Bond_Type01`, as shown below right).
 
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/bricks-sw-main-file-vs-bondtype1.png" width=100% height=100%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/bricks-sw-main-file-vs-bondtype1.png" width=100% height=100%>
 
 Similarly, initial conditions and loading must be edited manually in the main file `test.geo` **only if** the string labels are meant to convey information about displacement/velocity/acceleration/force (ensuring consistency of units, as ever):
 
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/Initial-conditions-loading.png" width=45% height=45%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/Initial-conditions-loading.png" width=45% height=45%>
 
 
 ## Execution
