@@ -10,7 +10,7 @@ This repository contains a set of macros to generate a 3D Finite Element mesosca
 
 The spatial mesh comprises solely 20-noded serendipitous hexahedrons, forming a **single arch** as a standalone structural component (i.e. without further typical masonry elements like backfill or backing).
 
-Illustratively, an example of arch mesh is shown below, alongside the local and global coordinate systems used throughout (though the latter is mere reference in this context, it is kept for consistency with [other repositories](https://github.com/AlfaBetaBeta/gmsh-3D-arch-bridge)). Note that the volumes are made transparent for clarity.
+Illustratively, an example of arch mesh is shown below, alongside the local and global coordinate systems used throughout (though the latter is mere unused reference in this context, it is kept for consistency with [other repositories](https://github.com/AlfaBetaBeta/gmsh-3D-arch-bridge)). Note that the volumes are made transparent for clarity.
 
 <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/Axes-local-global.png" width=100% height=100%>
 
@@ -36,13 +36,13 @@ All joint planes are highlighted below on sample arches for ease of interpretati
 
 Illustratively, all three bond types can be inspected below, whereby on the left the brick and mortar hexahedra are distinctly displayed and the 'brick bulk joints' are made translucent for clarity; on the right only the real mortar joints are displayed:
 
-* Bond type 1: running bond in XY and YZ (leaves entire circumferential and radial joints)
+* Bond type `1`: running bond in XY and YZ (leaves entire circumferential and radial joints)
 <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/BT1.png" width=100% height=100%>
 
-* Bond type 2: running bond in XY and XZ (leaves entire arch and radial joints)
+* Bond type `2`: running bond in XY and XZ (leaves entire arch and radial joints)
 <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/BT2.png" width=100% height=100%>
 
-* Bond type 3: leaves entire circumferential joints representing interfaces between rings, as well as radial joints
+* Bond type `3`: leaves entire circumferential joints representing interfaces between rings, as well as radial joints
 <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/BT3.png" width=100% height=100%>
 
 
@@ -56,7 +56,18 @@ There are two main groups of input parameters in `General_Input.geo`: geometry a
 
 An example of geometric input from within `General_Input.geo` is shown below:
 
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/geometry-input.png" width=90% height=90%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/geometry-input.png" width=80% height=80%>
+
+* `Abt` specifies the bond type as elaborated [above]().
+* `br_*[]` are lists containing the brick and mortar element dimensions along each (local) coordinate direction. It is up to the user to set the list order as {brick,mortar} or {mortar,brick} for each direction (`br_x[]`, `br_y[]` and `br_z[]`) separately. For instance, along (local) Y, the dimensions in the example are `107.5` for the brick elements and `6.0` for the joint elements (mortar and 'brick bulk'). As noted in the [introduction](), recall that two brick elements (and a 'brick bulk joint') are necessary to fully represent a physical brick.
+* `PH`, `PWd` and `W` are legacy parameters from [this repository](), without real use here aside from positioning the arch in global coordinates. Any arbitrary value can be assigned to them (e.g. `PH = 0` would lead to the global positioning of the arch in the [introduction]()). These parameters are maintained to enable future mesoscale extensions of the macros, for compatible generation of other masonry elements (e.g. piers).
+* `CSp`, `ARs` and `Th` define the geometry of the arch. Their meaning can be visually interpreted [here]().
+* `BZL` represents the number of brick layer (i.e. ignoring mortar) where loading will be applied. It starts from 1 in the brick layer at the springing where (local) Z is zero. Illustratively, an sample arch with 60 brick layers is shown below where `BZL = 50` (volumes made translucent for clarity).
+
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/BZL-example.png" width=100% height=100%>
+
+
+
 
 
 ## Units and loads
@@ -82,14 +93,14 @@ Similarly, initial conditions and dynamic loading must be edited manually in the
 
 ...
 
-* ...When defining the dimensions of the brick and mortar along X/Y/Z in `General_input`, it is up to the user to set the order {brick,mortar} or {mortar,brick} for each direction (`br_x[]`, `br_y[]` and `br_z[]`) separately!
+* ...
 
 * ...
 
 Geometric and meshing parameters to be entered in the `General_input` file:
 * `n_x` and `n_y` represent the number of layers along local X and Y, respectively. Bear in mind that this includes brick **and** mortar (i.e. `n_x=3` represents {brick,mortar,brick} or {mortar,brick,mortar} depending on `br_x[]`). `n_z` is calculated inside the macros and displayed as an INFO message upon execution.
 
-* `BZL` represents the number of brick layer (i.e. ignoring mortar) where loading will be applied. It starts from 1 in the brick layer at the left springing (when seen from y=0 plane).  
+* ...  
 
 
 
