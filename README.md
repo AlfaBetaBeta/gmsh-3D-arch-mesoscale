@@ -91,7 +91,7 @@ If the physical entity labels in `test.geo` do convey information to be processe
 
 Similarly, initial conditions and loading must be edited manually in the main file `test.geo` **only if** the string labels are meant to convey information about displacement/velocity/acceleration/force (ensuring consistency of units, as ever):
 
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/initial-conditions-loading.png" width=50% height=50%>
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/Initial-conditions-loading.png" width=50% height=50%>
 
 
 ## Execution
