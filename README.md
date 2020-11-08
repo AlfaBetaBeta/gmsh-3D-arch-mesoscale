@@ -62,7 +62,7 @@ An example of geometric input from within `General_Input.geo` is shown below:
 * `br_*[]` are lists containing the brick and mortar element dimensions along each (local) coordinate direction. It is up to the user to set the list order as {brick,mortar} or {mortar,brick} for each direction (`br_x[]`, `br_y[]` and `br_z[]`) separately. For instance, along (local) Y, the dimensions in the example are `107.5` for the brick elements and `6.0` for the joint elements (mortar and 'brick bulk'). As noted in the [introduction](), recall that two brick elements (and a 'brick bulk joint') are necessary to fully represent a physical brick.
 * `PH`, `PWd` and `W` are legacy parameters from [this repository](), without real use here aside from positioning the arch in global coordinates. Any arbitrary value can be assigned to them (e.g. `PH = 0` would lead to the global positioning of the arch in the [introduction]()). These parameters are maintained to enable future mesoscale extensions of the macros, for compatible generation of other masonry elements (e.g. piers).
 * `CSp`, `ARs` and `Th` define the geometry of the arch. Their meaning can be visually interpreted [here]().
-* `BZL` represents the number of brick layer (i.e. ignoring mortar) where loading will be applied. It starts from 1 in the brick layer at the springing where (local) Z is zero. Illustratively, an sample arch with 60 brick layers is shown below where `BZL = 50` (volumes made translucent for clarity).
+* `BZL` represents the number of brick layer (i.e. ignoring mortar) where loading will be applied on its extrados face. It starts from 1 in the brick layer at the springing where (local) Z is zero. Illustratively, an sample arch with 60 brick layers is shown below where `BZL = 50` (volumes made translucent for clarity).
 
 <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/BZL-example.png" width=100% height=100%>
 
@@ -70,17 +70,31 @@ In its current form, the set of macros only accepts one brick layer for `BZL`, b
 
 ### Meshing
 
-The sample meshing input from within `General_Input.geo` is also shown below:
+A sample meshing input from within `General_Input.geo` is also shown below:
 
 <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/meshing-input.png" width=60% height=60%>
 
-* `n_x` and `n_y` represent the number of layers along local X and Y, respectively. Bear in mind that this includes brick **and** mortar (thus for instance `n_x = 3` represents {brick,joint,brick} or {joint,brick,joint} depending on `br_x[]`). `n_z` is calculated inside the macros and displayed as an `INFO` message upon execution.
+* `n_x` and `n_y` represent the number of layers along local X and Y, respectively. Bear in mind that this includes brick **and** mortar (thus for instance `n_x = 3` represents {brick, joint, brick} or {joint, brick, joint} depending on `br_x[]`). `n_z` is calculated inside the macros and displayed as an `INFO` message upon execution.
+
+### Main file and editable macros
+
+The main `test.geo` file initialises the physical entities to be populated in the macros. If the strings labelling the physical entities are not to be programmatically processed for integration purposes with the relevant FE engine, then the user can select their physical entities of interest, leave the rest commented out and proceed with execution. None of the physical entities is essential for the correct execution of any macro. 
+
+If the physical entity labels in `test.geo` do convey information to be processed (like self-weight, as in the example below left), then attention must be paid to ensure **consistency of units with geometric dimensions** (e.g. as specified in `br_*[]`), as well as **between `test.geo` and the relevant bond type macro** (e.g. `01Bond_Type01`, as shown below right).
+
+<p align="middle">
+  <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/main-file-bricks-sw.png" width=50% height=50%>
+  <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/bond-type-1-bricks-sw.png" width=50% height=50%>
+</p>
+
+
+
 
 
 
 ## Units and loads
 
-The load is expected to be dynamic and applied to the extrados face of a given 'brick layer' (`BZL` in the `General_input` file). In this version, units are expected to be mm! 
+
 
 The self-weight of materials must be edited manually in the main file `test.geo` 
 
