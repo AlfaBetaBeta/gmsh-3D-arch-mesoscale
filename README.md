@@ -83,8 +83,8 @@ The main `test.geo` file initialises the physical entities to be populated in th
 If the physical entity labels in `test.geo` do convey information to be processed (like self-weight, as in the example below left), then attention must be paid to ensure **consistency of units with geometric dimensions** (e.g. as specified in `br_*[]`), as well as **between `test.geo` and the relevant bond type macro** (e.g. `01Bond_Type01`, as shown below right).
 
 <p align="middle">
-  <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/main-file-bricks-sw.png" width=50% height=50%>
-  <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/bond-type-1-bricks-sw.png" width=50% height=50%>
+  <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/main-file-bricks-sw.png" width=40% height=40%>
+  <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/bond-type-1-bricks-sw.png" width=40% height=40%>
 </p>
 
 
