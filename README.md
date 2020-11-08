@@ -2,9 +2,14 @@
 
 This repository contains a set of macros to generate a 3D Finite Element mesoscale mesh of a masonry arch, via the free meshing tool [gmsh](https://gmsh.info/). The main features of the macros, as well as their input parameters and execution guidelines can be found in the sections below:
 
-* [Introduction]
-* [Bond types]
-* [Input parameters]
+* [Introduction]()
+* [Bond types]()
+* [Input parameters]():
+    * [Geometry]()
+    * [Meshing]()
+    * [Main file and editable macros]()
+* [Execution]()
+* [Caveats]
 
 ## Introduction
 
@@ -80,56 +85,20 @@ A sample meshing input from within `General_Input.geo` is also shown below:
 
 The main `test.geo` file initialises the physical entities to be populated in the macros. If the strings labelling the physical entities are not to be programmatically processed for integration purposes with the relevant FE engine, then the user can select their physical entities of interest, leave the rest commented out and proceed with execution. None of the physical entities is essential for the correct execution of any macro. 
 
-If the physical entity labels in `test.geo` do convey information to be processed (like self-weight, as in the example below left), then attention must be paid to ensure **consistency of units with geometric dimensions** (e.g. as specified in `br_*[]`), as well as **between `test.geo` and the relevant bond type macro** (e.g. `01Bond_Type01`, as shown below right).
+If the physical entity labels in `test.geo` do convey information to be processed (like self-weight, as in the example below left), then attention must be paid to ensure **consistency of units with geometric dimensions** (e.g. as specified in `br_*[]`), as well as **consistency between `test.geo` and the relevant bond type macro** (e.g. `01Bond_Type01`, as shown below right).
 
 <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/bricks-sw-main-file-vs-bondtype1.png" width=100% height=100%>
 
+Similarly, initial conditions and loading must be edited manually in the main file `test.geo` **only if** the string labels are meant to convey information about displacement/velocity/acceleration/force (ensuring consistency of units, as ever):
 
-
-
-
-
-
-## Units and loads
-
-
-
-The self-weight of materials must be edited manually in the main file `test.geo` 
-
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/physical-volume-bricks-sw.png" width=90% height=90%>
-
-and at the end of the appropriate `Bond_Type` macro `Macro_01Bond_Type0x.geo`
-
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/brick-sw-bond-type-1.png" width=90% height=90%>
-
-provided that the string with the Physical Volume name be programmatically processed by a FE engine to define volumetric loads. Should the self weight components be defined differently, then this manual labelling is unnecessary.
-
-Similarly, initial conditions and dynamic loading must be edited manually in the main file `test.geo` **if** the strings are meant to convey information about displacement/velocity/acceleration:
-
-<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/Initial-conditions-loading.png" width=50% height=50%>
-
-
-## Geometry and FE mesh
-
-...
-
-* ...
-
-* ...
-
-...
-* ...
-
-* ...  
-
-
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/master/img/initial-conditions-loading.png" width=50% height=50%>
 
 
 ## Execution
 
-Once `General_input.geo` has been populated with the appropriate values, to read the main script `test.geo` into gmsh and proceed with the meshing, execution can be done via:
+Once `General_input.geo` has been populated with the appropriate values by the user as per the guidelines [above](), the execution of the macros from the main `.geo` file can be done via GUI or CLI. For the example included here, these options would be:
 * GUI:
-    * Open it from gmsh and then press `0` to read the file.
+    * Open `test.geo` from gmsh and then press `0` to read the file.
     * To execute the 3D meshing after reading the script, press `3`.
     * The resulting `.msh` file can be saved locally and might be necessary as input for further generative/analysis tools.
 
@@ -137,7 +106,14 @@ Once `General_input.geo` has been populated with the appropriate values, to read
 ```
 $ gmsh -3 test.geo
 ```
+or
+```
+$ gmsh -3 -part 6 test.geo
+```
+should it be necessary to partition the mesh (say in 6 in this case).
 
 ## Caveats
 
-All macros (`Macro_*.geo`) are developed under gmsh version 2.2., though they should work with later versions (4) as well.
+* All macros are developed under an old gmsh version (2.2), though they should work with later versions (4) as well.
+
+* The current project architecture is somewhat unstructured, and may need the user to manually control consistency between `General_Input.geo` and the main `geo` file. A desirable upgrade would consist of centralising the input into a single file and handling all consistency checks internally.
