@@ -4,7 +4,7 @@ This repository contains a set of macros to generate a 3D Finite Element mesosca
 
 * [Introduction]
 * [Bond types]
-
+* [Input parameters]
 
 ## Introduction
 
@@ -66,7 +66,15 @@ An example of geometric input from within `General_Input.geo` is shown below:
 
 <img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/BZL-example.png" width=100% height=100%>
 
+In its current form, the set of macros only accepts one brick layer for `BZL`, but future revisions will accommodate the case of multiple layers via a list-like parameter (`BZL[]`).
 
+### Meshing
+
+The sample meshing input from within `General_Input.geo` is also shown below:
+
+<img src="https://github.com/AlfaBetaBeta/gmsh-3D-arch-mesoscale/blob/ABB/img/meshing-input.png" width=60% height=60%>
+
+* `n_x` and `n_y` represent the number of layers along local X and Y, respectively. Bear in mind that this includes brick **and** mortar (thus for instance `n_x = 3` represents {brick,joint,brick} or {joint,brick,joint} depending on `br_x[]`). `n_z` is calculated inside the macros and displayed as an `INFO` message upon execution.
 
 
 
@@ -97,8 +105,8 @@ Similarly, initial conditions and dynamic loading must be edited manually in the
 
 * ...
 
-Geometric and meshing parameters to be entered in the `General_input` file:
-* `n_x` and `n_y` represent the number of layers along local X and Y, respectively. Bear in mind that this includes brick **and** mortar (i.e. `n_x=3` represents {brick,mortar,brick} or {mortar,brick,mortar} depending on `br_x[]`). `n_z` is calculated inside the macros and displayed as an INFO message upon execution.
+...
+* ...
 
 * ...  
 
