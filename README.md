@@ -53,7 +53,7 @@ Illustratively, all three bond types can be inspected below, whereby on the left
 
 ## Input parameters
 
-All the `.geo` files containing macros are named as the macro they embed, prepended by `Macro_`. Additionally, there is a file (`General_Input.geo`) gathering all relevant modelling information. This file is the one meant to be edited by the user, alongside the main file actually calling the macros and retrieving the input values, in this case `test.geo`.
+All the `.geo` files containing macros are named as the macro they embed, prepended by `Macro_`. Additionally, there is a file (`General_Input.geo`) gathering all relevant modelling information. This file is the one meant to be edited by the user, alongside the main file actually calling the macros and retrieving the input values, in this case `test.geo`. Under certain circumstances, the bond type macros [may need to be edited as well]().
 
 There are two main groups of input parameters in `General_Input.geo`: geometry and meshing parameters.
 
